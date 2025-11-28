@@ -1,29 +1,10 @@
 "use client"
+import { posts } from '@/lib/posts';
 // pages/index.jsx
 import Image from 'next/image';
 import Link from 'next/link';
 
-const recentBlogs = [
-  {
-    title: "Getting Started with MERN Stack",
-    desc: "Learn how to build a full-stack app using MongoDB, Express, React, and Node.js.",
-    img: "/blogimage.jpg",
-    link: "/post"
-  },
-  {
-    title: "Top 10 JavaScript Tips",
-    desc: "Boost your JS skills with these practical tips and tricks.",
-    img: "/blogimage3.avif",
-    link: "/post/js-tips"
-  },
-  {
-    title: "Understanding AI Basics",
-    desc: "A beginner-friendly guide to AI concepts and applications.",
-    img: "/blogimage3.avif",
-    link: "/post/ai-basics"
-  },
-];
-
+const recentBlogs = posts.slice(0,3)
 const categories = ["JavaScript", "MERN Stack", "AI & ML", "Web Development", "Tech Tools"];
 
 export default function Home() {
@@ -60,7 +41,7 @@ export default function Home() {
           {recentBlogs.map((blog, idx) => (
             <a key={idx} href={blog.link} className="group border rounded-lg overflow-hidden shadow hover:shadow-lg transition">
               <div className="relative w-full h-48">
-                <img src={blog.img} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                <img src={blog.image} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
               </div>
               <div className="p-4">
                 <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition">{blog.title}</h3>
