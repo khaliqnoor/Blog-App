@@ -1,33 +1,9 @@
 "use client"
 import React from "react"
+import { posts } from "@/lib/posts"
 
 const Page = () => {
-    const projects = [
-  {
-    title: "Build a MERN Stack App",
-    desc: "Step-by-step guide to create a full-stack app with MongoDB, Express, React, and Node.js.",
-    img: "/blogimage.jpg",
-    link: "/blog/mern-stack"
-  },
-  {
-    title: "JavaScript Tips & Tricks",
-    desc: "Boost your JS skills with these practical tips for developers.",
-    img: "/blogimage.jpg",
-    link: "/blog/js-tips"
-  },
-  {
-    title: "AI Basics for Beginners",
-    desc: "Understand AI concepts and build your first AI project.",
-    img: "/blogimage.jpg",
-    link: "/blog/ai-basics"
-  },
-  {
-    title: "Next.js Blog Tutorial",
-    desc: "Learn how to create a modern blog using Next.js and Tailwind CSS.",
-    img: "/blogimage.jpg",
-    link: "/blog/nextjs-blog"
-  },
-];
+
   return (
     <div className="min-h-screen w-full flex gap-8 border-t max-w-7xl">
       
@@ -69,12 +45,12 @@ const Page = () => {
               <option>Tech</option>
               <option>Programming</option>
               <option>AI / ML</option>
-              <option>Design</option>
+              <option>Web Development</option>
             </select>
           </div>
 
           {/* Apply Button */}
-          <button className="mt-3 bg-black dark:bg-white text-white dark:text-black py-2 rounded-lg font-medium hover:opacity-90 transition">
+          <button className="mt-3 bg-black cursor-pointer dark:bg-white text-white dark:text-black py-2 rounded-lg font-medium hover:opacity-85 transition">
             Apply Filters
           </button>
         </div>
@@ -91,11 +67,11 @@ const Page = () => {
 
         {/* POSTS GRID */}
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, idx) => (
+        {posts.map((project, idx) => (
           <a key={idx} href={project.link} className="group border rounded-lg overflow-hidden shadow hover:shadow-lg transition">
             <div className="relative w-full h-48">
               <img 
-                src={project.img} 
+                src={project.image} 
                 alt={project.title} 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform"
               />

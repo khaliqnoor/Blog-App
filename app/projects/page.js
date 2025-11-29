@@ -3,16 +3,16 @@ import { posts } from "@/lib/posts"
 import { useState } from "react"
 
 export default function Projects() {
-  const [visible, setVisible] = useState(6) // show first 6
+  const [visible, setVisible] = useState(6) 
   const [isLoading, setIsLoading] = useState(false)
 
 const loadMore = () => {
-  if (isLoading) return            // prevent double clicks
-  setIsLoading(true)               // show loader immediately
+  if (isLoading) return          
+  setIsLoading(true)             
 
   setTimeout(() => {
-    setVisible(prev => prev + 3)   // load 3 more (change if you want 2)
-    setIsLoading(false)            // hide loader when done
+    setVisible(prev => prev + 3) 
+    setIsLoading(false)          
   }, 1000)
 }
 
