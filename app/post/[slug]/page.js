@@ -3,6 +3,7 @@ import { posts } from "@/lib/posts"
 import { useUser } from "@clerk/nextjs"
 import { useState } from "react"
 import React from "react"
+import { toast } from "sonner"
 
 const PostPage = ({ params }) => {
   const { slug } =React.use(params) 
@@ -28,11 +29,13 @@ const PostPage = ({ params }) => {
     }
 
     setComments([...comments, newComment])
+    toast.success("Comment posted successfully!")
     setCommentText("")
   }
 
   const handleDelete = (id) => {
     setComments(comments.filter((c) => c.id !== id))
+    toast.success("Comment deleted successfully!")
   }
 
   return (

@@ -5,12 +5,25 @@ import Link from 'next/link';
 import { SignIn, SignInButton, UserButton } from '@clerk/nextjs';
 import { useUser } from '@clerk/nextjs';
 import { ModeToggle } from './ModeToggle';
+import { useRouter } from 'next/navigation';
+import { toast } from "sonner";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Toggle this to see logged in state
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
   const { user, isSignedIn } = useUser();
-  
+  const router = useRouter()
+
+  const [searchText, setSearchText] = useState("");
+ 
+  const handleSearch = (e)=> {
+    e.preventDefault()
+    if(!searchText){
+      toast.error("Please enter a search term")
+      return
+    }
+    router.push(`/search?query=${searchText}`);
+  }
 
   return (
     <nav className="bg-white dark:bg-gray-800 dark:text-white  shadow-md sticky top-0 z-50">
@@ -23,19 +36,24 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Search Bar - Hidden on mobile */}
+          {/* Search Bar - desktop */}
+         
           <div className="hidden md:flex flex-1 max-w-md mx-8">
+         <form action="" onSubmit={handleSearch} >
             <div className="relative w-full">
               <input
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
                 type="text"
                 placeholder="Search articles..."
                 className="w-full px-4 py-2 pl-10 pr-4 text-gray-700 dark:text-white bg-gray-100 dark:bg-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
               />
               <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
             </div>
+            </form>
           </div>
 
-          {/* Navigation Links - Hidden on mobile */}
+          {/* Navigation Links - desktop*/}
           <div className="hidden md:flex items-center space-x-8 ">
             <Link href="/" className="text-gray-700 dark:text-white hover:text-blue-600 font-medium transition">
               Home
@@ -50,7 +68,7 @@ const Navbar = () => {
           <div className='md:block hidden'>
           <ModeToggle />
           </div>
-          {/* User Section - Hidden on mobile */}
+          {/* User Section- desktop*/}
           <div className="hidden md:flex items-center ml-6">
             {isSignedIn ? (
               <UserButton />
@@ -58,10 +76,7 @@ const Navbar = () => {
               <SignInButton className="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 cursor-pointer transition" />
             )}
           </div>
-        
-
-
-
+   
           {/* Mobile menu button */}
           <div className="md:hidden flex">
              <div>
@@ -78,14 +93,18 @@ const Navbar = () => {
 
         {/* Mobile Search Bar */}
         <div className="md:hidden pb-3">
+          <form action="" onSubmit={handleSearch}>
           <div className="relative">
             <input
+              value={searchText}
+              onChange={(e)=> setSearchText(e.target.value)}
               type="text"
               placeholder="Search articles..."
               className="w-full px-4 py-2 pl-10 pr-4 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
             />
             <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
           </div>
+          </form>
         </div>
       </div>
 

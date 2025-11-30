@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "sonner";
 
 export const metadata = {
   title: "Create Next App",
@@ -10,6 +11,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
@@ -22,6 +24,7 @@ export default function RootLayout({ children }) {
         <ClerkProvider>
           <Navbar />
           {children}
+          <Toaster richColors closeButton position="top-center"/>
           <Footer />
         </ClerkProvider>
         </ThemeProvider>
