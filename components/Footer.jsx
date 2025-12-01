@@ -2,7 +2,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/f
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-gray-800 dark:text-white dark:bg-blur text-gray-800 border-t border-gray-200 mt-10">
+    <footer className="bg-white dark:bg-gray-800 dark:text-white dark:bg-blur text-gray-800 border-t border-gray-200 ">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
         
         {/* About Section */}
@@ -27,10 +27,10 @@ export default function Footer() {
         <div>
           <h4 className="text-lg font-semibold mb-4">Categories</h4>
           <ul className="space-y-2">
-            <li><a href="/category/tech" className="hover:text-blue-500">Tech</a></li>
-            <li><a href="/category/freelancing" className="hover:text-blue-500">Freelancing</a></li>
-            <li><a href="/category/tutorials" className="hover:text-blue-500">Tutorials</a></li>
-            <li><a href="/category/lifestyle" className="hover:text-blue-500">Lifestyle</a></li>
+            <li><a href="#" className="hover:text-blue-500">Tech</a></li>
+            <li><a href="#" className="hover:text-blue-500">Freelancing</a></li>
+            <li><a href="#" className="hover:text-blue-500">Tutorials</a></li>
+            <li><a href="#" className="hover:text-blue-500">Lifestyle</a></li>
           </ul>
         </div>
 

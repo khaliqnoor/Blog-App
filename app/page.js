@@ -1,6 +1,5 @@
 "use client"
 import { posts } from '@/lib/posts';
-// pages/index.jsx
 import Image from 'next/image';
 import Link from 'next/link';
 
