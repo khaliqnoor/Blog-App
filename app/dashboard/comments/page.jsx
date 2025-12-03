@@ -15,12 +15,31 @@ const page = () => {
       text: "Bro this UI is smooth.",
       createdAt: "2025-12-02T10:20:00Z",
     },
+    {
+      _id: "9",
+      username: "Ali",
+      text: "Bro this UI is smooth.",
+      createdAt: "2025-12-02T10:20:00Z",
+    },
+    {
+      _id: "8",
+      username: "Ali",
+      text: "Bro this UI is smooth.",
+      createdAt: "2025-12-02T10:20:00Z",
+    },
+    {
+      _id: "5",
+      username: "Ali",
+      text: "Bro this UI is smooth.",
+      createdAt: "2025-12-02T10:20:00Z",
+    },
   ];
   const post = posts.find((title)=> title.title)
 
   return (
    <div className="w-full flex justify-center mt-10">
       <div className="w-full max-w-3xl space-y-4">
+        <h2 className='text-2xl font-bold '>Total Comments : {comments.length}</h2>
         {comments.length === 0 ? (
           <p className="text-center text-gray-400">No comments yet.</p>
         ) : (
