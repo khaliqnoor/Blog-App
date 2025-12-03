@@ -27,7 +27,6 @@ export default function DashboardLayout({ children }) {
         </div>
       )}
 
-      {/* Main content */}
       <div className="flex-1 p-6">
       
         <div className="md:hidden mb-4">

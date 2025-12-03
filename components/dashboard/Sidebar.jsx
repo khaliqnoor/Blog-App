@@ -5,12 +5,14 @@ import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   FileText,
+  PlusCircle,
   MessageSquare,
   Users,
 } from "lucide-react";
 
 const menuItems = [
   { name: "Overview", href: "/dashboard", icon: LayoutDashboard },
+  { name: "Create Post", href: "/dashboard/create-post", icon: PlusCircle },
   { name: "Posts", href: "/dashboard/posts", icon: FileText },
   { name: "Comments", href: "/dashboard/comments", icon: MessageSquare },
   { name: "Users", href: "/dashboard/users", icon: Users },
